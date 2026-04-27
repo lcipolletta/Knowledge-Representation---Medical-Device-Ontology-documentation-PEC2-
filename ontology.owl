@@ -1,0 +1,2243 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.uoc.edu/PEC2#"
+     xml:base="http://www.uoc.edu/PEC2"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:mod="https://w3id.org/mod#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:PEC2="http://www.uoc.edu/PEC2#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.uoc.edu/PEC2">
+        <dc:description>Ontology for modelling incidents, risks and corrective actions in medical devices.</dc:description>
+        <dc:title>Medical Device Risk Ontology</dc:title>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <rdfs:label>Medical Device Risk Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1.0</owl:versionInfo>
+        <mod:createdWith rdf:resource="https://chowlk.linkeddata.es/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- https://w3id.org/mod#createdWith -->
+
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/mod#createdWith"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.w3.org/2001/XMLSchema#date -->
+
+
+    <rdfs:Datatype rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasActionType -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasActionType">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#ActionType"/>
+        <rdfs:comment>Links a corrective action to its action type.</rdfs:comment>
+        <rdfs:label>has action type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasAffectedDeviceType -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasAffectedDeviceType">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Links a risk to the type of device affected by that risk.</rdfs:comment>
+        <rdfs:label>has affected device type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasCountry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasCountry">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Country"/>
+        <rdfs:comment>Links a manufacturer to the country where it is located or registered</rdfs:comment>
+        <rdfs:label>has country</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasDevice -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasDevice">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:comment>Links an incident to the device involved in the incident</rdfs:comment>
+        <rdfs:label>has device</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasDeviceType -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasDeviceType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Links a device to its device type.</rdfs:comment>
+        <rdfs:label>has device type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasIncident -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasIncident">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:comment>Links a corrective action to the incident that motivated it.</rdfs:comment>
+        <rdfs:label>has incident</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasIncidentType -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasIncidentType">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#IncidentType"/>
+        <rdfs:comment>Links an incident to its incident type.</rdfs:comment>
+        <rdfs:label>has incident type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasManufacturer -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasManufacturer">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:comment>Links a device to its manufacturer.</rdfs:comment>
+        <rdfs:label>has manufacturer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasProbability -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasProbability">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Probability"/>
+        <rdfs:comment>Links a risk to its probability level.</rdfs:comment>
+        <rdfs:label>has probability</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasRegulatoryFramework -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasRegulatoryFramework">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#RegulatoryFramework"/>
+        <rdfs:comment>Links a device to its applicable regulatory framework</rdfs:comment>
+        <rdfs:label>has regulatory framework</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasRisk -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasRisk">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:comment>Links an incident to an associated risk.</rdfs:comment>
+        <rdfs:label>has risk</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasRiskCategory -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasRiskCategory">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#RiskCategory"/>
+        <rdfs:comment>Links a risk to its high-level risk category.</rdfs:comment>
+        <rdfs:label>has risk category</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasRiskClass -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasRiskClass">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#RiskClass"/>
+        <rdfs:comment>Links a device to its regulatory risk class</rdfs:comment>
+        <rdfs:label>has risk class</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasRiskType -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasRiskType">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#RiskType"/>
+        <rdfs:comment>Links a risk to its specific risk type.</rdfs:comment>
+        <rdfs:label>has risk type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasSeverity -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasSeverity">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Severity"/>
+        <rdfs:comment>Links a risk to its severity level.</rdfs:comment>
+        <rdfs:label>has severity</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#hasStatus -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#hasStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Status"/>
+        <rdfs:comment>Links a corrective action to its current status.</rdfs:comment>
+        <rdfs:label>has status</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#reportedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#reportedBy">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:comment>Links an incident to the manufacturer that reported it.</rdfs:comment>
+        <rdfs:label>reported by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#reportedInCountry -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.uoc.edu/PEC2#reportedInCountry">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.uoc.edu/PEC2#Country"/>
+        <rdfs:comment>Links an incident to the countries where it was reported.</rdfs:comment>
+        <rdfs:label>reported in country</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#actionDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#actionDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date when the corrective action was initiated.</rdfs:comment>
+        <rdfs:label>action date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#actionDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#actionDescription">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Description of the corrective action.</rdfs:comment>
+        <rdfs:label>action description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#authorizationNumber -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#authorizationNumber">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Authorization of the manufacturer.</rdfs:comment>
+        <rdfs:label>authorization number</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#closureDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#closureDate">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date when the incident or corrective action was closed.</rdfs:comment>
+        <rdfs:label>closure date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#competentAuthority -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#competentAuthority">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Regulatory authority responsible for overseeing the incident or action.</rdfs:comment>
+        <rdfs:label>competent authority</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#contactEmail -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#contactEmail">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Contact email address of the manufacturer.</rdfs:comment>
+        <rdfs:label>contact email</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#correctiveActionTaken -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#correctiveActionTaken">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates  whether a corrective action was taken.</rdfs:comment>
+        <rdfs:label>corrective action taken</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#countriesAffected -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#countriesAffected">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Information of the geographic scope affected by the corrective action.</rdfs:comment>
+        <rdfs:label>countries affected</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#detectionDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#detectionDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date when the issue or incident was first detected.</rdfs:comment>
+        <rdfs:label>detection date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#deviceId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#deviceId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Identifier of the device (in the dataset).</rdfs:comment>
+        <rdfs:label>device id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#deviceName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#deviceName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of the medical device.</rdfs:comment>
+        <rdfs:label>device name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#devicesAffected -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#devicesAffected">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Number or textual description of devices affected by the corrective action.</rdfs:comment>
+        <rdfs:label>devices affected</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#eudamedFSCARef -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#eudamedFSCARef">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Reference identifier of the corrective action in the EUDAMED system.</rdfs:comment>
+        <rdfs:label>EUDAMED FSCA reference</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#eudamedIncidentRef -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#eudamedIncidentRef">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Reference identifier of the incident in the EUDAMED system.</rdfs:comment>
+        <rdfs:label>eudamed incident ref</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#eudamedSRN -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#eudamedSRN">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Identifier assigned to the manufacturer in EUDAMED</rdfs:comment>
+        <rdfs:label>EUDAMED SRN</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#eventDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#eventDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date when the incident event occurred.</rdfs:comment>
+        <rdfs:label>event date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#fscaId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#fscaId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Identifier of the corrective action.</rdfs:comment>
+        <rdfs:label>FSCA id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#imdrfCode -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#imdrfCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>IMDRF code related with the type of risk.</rdfs:comment>
+        <rdfs:label>IMDRF code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#incidentDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#incidentDescription">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Description of the incident.</rdfs:comment>
+        <rdfs:label>Incident description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#incidentId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#incidentId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Identifier of the incident in the dataset.</rdfs:comment>
+        <rdfs:label>incident id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#intendedPurpose -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#intendedPurpose">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Intended medical purpose of the device.</rdfs:comment>
+        <rdfs:label>intended purpose</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#isActive -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#isActive">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates whether the device is active.</rdfs:comment>
+        <rdfs:label>is active</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#isIVD -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#isIVD">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates whether the device is an in vitro diagnostic device.</rdfs:comment>
+        <rdfs:label>is IVD</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#isImplantable -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#isImplantable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates whether the device is implantable.</rdfs:comment>
+        <rdfs:label>is implantable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#isReusable -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#isReusable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>Indicates whether the device can be reused.</rdfs:comment>
+        <rdfs:label>is reusable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#manufacturerId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#manufacturerId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Identifier of the manufacturer in the dataset.</rdfs:comment>
+        <rdfs:label>manufacturer id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#name -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#name">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name of the manufacturer.</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#outcome -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#outcome">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Outcome or consequence of the incident.</rdfs:comment>
+        <rdfs:label>outcome</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#patientAge -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#patientAge">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Patient age as represented in the source dataset, including non-numeric values when applicable.</rdfs:comment>
+        <rdfs:label>patient age</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#patientSex -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#patientSex">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Sex of the patient involved in the incident.</rdfs:comment>
+        <rdfs:label>patient sex</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#reportDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#reportDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:comment>Date when the incident was reported.</rdfs:comment>
+        <rdfs:label>report date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#riskDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#riskDescription">
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Description of the risk.</rdfs:comment>
+        <rdfs:label>Risk description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#riskId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#riskId">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Identifier of the risk in the dataset.</rdfs:comment>
+        <rdfs:label>risk id</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#riskName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#riskName">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Name or description of the risk.</rdfs:comment>
+        <rdfs:label>risk name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#scope -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#scope">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Scope of the corrective action or incident.</rdfs:comment>
+        <rdfs:label>scope</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#udiDi -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.uoc.edu/PEC2#udiDi">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Unique Device Identification.</rdfs:comment>
+        <rdfs:label>udi di</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ActionType -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#ActionType">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Type of action performed in response to an incident.</rdfs:comment>
+        <rdfs:label>Action Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClassIIIDevice -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#ClassIIIDevice">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <rdfs:comment>Device inferred as belonging to risk class III.</rdfs:comment>
+        <rdfs:label>Class III device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClosedCorrectiveAction -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#ClosedCorrectiveAction">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:comment>Corrective action inferred as closed based on its status.</rdfs:comment>
+        <rdfs:label>Closed corrective action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#CorrectiveAction -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#CorrectiveAction">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uoc.edu/PEC2#hasStatus"/>
+                <owl:someValuesFrom rdf:resource="http://www.uoc.edu/PEC2#Status"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Action taken to mitigate or solve a safety issue related to a device</rdfs:comment>
+        <rdfs:label>Corrective Action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Country -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Country">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Country associated with a manufacturer or where an incident is reported.</rdfs:comment>
+        <rdfs:label>Country</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#CriticalRiskIncident -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#CriticalRiskIncident">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <rdfs:comment>Incident inferred as critical based on the severity of its associated risk.</rdfs:comment>
+        <rdfs:label>Critical Risk Incident</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Device -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Device">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uoc.edu/PEC2#hasDeviceType"/>
+                <owl:someValuesFrom rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uoc.edu/PEC2#hasManufacturer"/>
+                <owl:someValuesFrom rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uoc.edu/PEC2#hasDeviceType"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uoc.edu/PEC2#hasManufacturer"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Medical device</rdfs:comment>
+        <rdfs:label>Device</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#DeviceRelatedRisk -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#DeviceRelatedRisk">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#RiskType"/>
+        <rdfs:comment>Risk type associated with device malfunction or failure</rdfs:comment>
+        <rdfs:label>Device Related Risk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#DeviceRiskCategory -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#DeviceRiskCategory">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#RiskCategory"/>
+        <rdfs:comment>Risk category related to device malfunction, performance or safety.</rdfs:comment>
+        <rdfs:label>Device Risk Category</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#DeviceType -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#DeviceType">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Category describing the type of medical device.</rdfs:comment>
+        <rdfs:label>Device Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#HumanRelatedRisk -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#HumanRelatedRisk">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#RiskType"/>
+        <rdfs:comment>Risk type associated with harm to humans caused by device-related issues.</rdfs:comment>
+        <rdfs:label>Human Related Risk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#HumanRiskCategory -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#HumanRiskCategory">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#RiskCategory"/>
+        <rdfs:comment>Risk category related to harm or impact on humans.</rdfs:comment>
+        <rdfs:label>Human Risk Category</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Incident -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Incident">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Event involving a device that may lead to patient harm or malfunction.</rdfs:comment>
+        <rdfs:label>Incident</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#IncidentType -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#IncidentType">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Classification of incidents</rdfs:comment>
+        <rdfs:label>Incident Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Manufacturer -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Manufacturer">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Organization that produces and assembles medical devices</rdfs:comment>
+        <rdfs:label>Manufacturer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity">
+        <rdfs:comment>Root class for the main entities represented in the medical device risk ontology.</rdfs:comment>
+        <rdfs:label>Medical Device Ontology Entity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#OpenCorrectiveAction -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#OpenCorrectiveAction">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <rdfs:comment>Corrective action inferred as open based on its status.</rdfs:comment>
+        <rdfs:label>Open corrective action</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Probability -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Probability">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Likelihood that a risk will occur.</rdfs:comment>
+        <rdfs:label>Probability</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RegulatoryFramework -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#RegulatoryFramework">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Regulatory system under which a device is classified (MDR, IVDR).</rdfs:comment>
+        <rdfs:label>Regulatory Framework</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Risk -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Risk">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.uoc.edu/PEC2#hasSeverity"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.uoc.edu/PEC2#Severity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>Potential hazard associated with a medical device or its use</rdfs:comment>
+        <rdfs:label>Risk</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RiskCategory -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#RiskCategory">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Classification of risks based on their impact domain.</rdfs:comment>
+        <rdfs:label>Risk Category</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RiskClass -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#RiskClass">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Regulatory classification level assigned to a medical device</rdfs:comment>
+        <rdfs:label>Risk Class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RiskType -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#RiskType">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Type of risk based on its cause or nature.</rdfs:comment>
+        <rdfs:label>Risk Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Severity -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Severity">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Level of seriousness of a risk or incident</rdfs:comment>
+        <rdfs:label>Severity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Status -->
+
+
+    <owl:Class rdf:about="http://www.uoc.edu/PEC2#Status">
+        <rdfs:subClassOf rdf:resource="http://www.uoc.edu/PEC2#MedicalDeviceOntologyEntity"/>
+        <rdfs:comment>Current state of a corrective action</rdfs:comment>
+        <rdfs:label>Status</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClassC -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#ClassC">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RiskClass"/>
+        <rdfs:comment>Risk class C under IVDR regulation.</rdfs:comment>
+        <rdfs:label>Class C</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClassD -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#ClassD">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RiskClass"/>
+        <rdfs:comment>Highest risk class under IVDR regulation.</rdfs:comment>
+        <rdfs:label>Class D</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClassIII -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#ClassIII">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RiskClass"/>
+        <rdfs:comment>Highest risk class under MDR regulation</rdfs:comment>
+        <rdfs:label>Class III</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClassIIa -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#ClassIIa">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RiskClass"/>
+        <rdfs:comment>Moderate risk class under MDR regulation.</rdfs:comment>
+        <rdfs:label>Class IIa</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#ClassIIb -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#ClassIIb">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RiskClass"/>
+        <rdfs:comment>High risk class under MDR regulation.</rdfs:comment>
+        <rdfs:label>Class IIb</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Closed -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Closed">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Status"/>
+        <rdfs:comment>Status that indicates if the case has been closed</rdfs:comment>
+        <rdfs:label>Closed</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Critical -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Critical">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Severity"/>
+        <rdfs:comment>Highest level of severity for a risk or incident.</rdfs:comment>
+        <rdfs:label>Critical</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#DEV-001 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#DEV-001">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <hasDeviceType rdf:resource="http://www.uoc.edu/PEC2#implantableActiveDevice"/>
+        <hasManufacturer rdf:resource="http://www.uoc.edu/PEC2#MAN-001"/>
+        <hasRegulatoryFramework rdf:resource="http://www.uoc.edu/PEC2#MDR"/>
+        <hasRiskClass rdf:resource="http://www.uoc.edu/PEC2#ClassIII"/>
+        <deviceId>DEV-001</deviceId>
+        <deviceName>HeartMate 3 LVAD</deviceName>
+        <intendedPurpose>Ventricular assist device for end-stage heart failure</intendedPurpose>
+        <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isActive>
+        <isIVD rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIVD>
+        <isImplantable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isImplantable>
+        <isReusable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isReusable>
+        <udiDi>(01)00380740009095</udiDi>
+        <rdfs:comment>Instance of a specific medical device from the dataset.</rdfs:comment>
+        <rdfs:label>DEV-001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#DEV-002 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#DEV-002">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <hasDeviceType rdf:resource="http://www.uoc.edu/PEC2#activeImplant"/>
+        <hasManufacturer rdf:resource="http://www.uoc.edu/PEC2#MAN-001"/>
+        <hasRegulatoryFramework rdf:resource="http://www.uoc.edu/PEC2#MDR"/>
+        <hasRiskClass rdf:resource="http://www.uoc.edu/PEC2#ClassIII"/>
+        <deviceId>DEV-002</deviceId>
+        <deviceName>Micra AV Transcatheter Pacing System</deviceName>
+        <intendedPurpose>Leadless cardiac pacemaker for atrioventricular synchrony</intendedPurpose>
+        <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isActive>
+        <isIVD rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIVD>
+        <isImplantable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isImplantable>
+        <isReusable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isReusable>
+        <udiDi>(01)00380740009112</udiDi>
+        <rdfs:comment>Instance of a specific medical device from the dataset.</rdfs:comment>
+        <rdfs:label>DEV-002</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#DEV-003 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#DEV-003">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+        <hasDeviceType rdf:resource="http://www.uoc.edu/PEC2#implantableDevice"/>
+        <hasManufacturer rdf:resource="http://www.uoc.edu/PEC2#MAN-002"/>
+        <hasRegulatoryFramework rdf:resource="http://www.uoc.edu/PEC2#MDR"/>
+        <hasRiskClass rdf:resource="http://www.uoc.edu/PEC2#ClassIII"/>
+        <deviceId>DEV-003</deviceId>
+        <deviceName>Portico Transcatheter Heart Valve</deviceName>
+        <intendedPurpose>Transcatheter aortic valve replacement (TAVI)</intendedPurpose>
+        <isActive rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isActive>
+        <isIVD rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isIVD>
+        <isImplantable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</isImplantable>
+        <isReusable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</isReusable>
+        <udiDi>(01)00800002222291</udiDi>
+        <rdfs:comment>Instance of a specific medical device from the dataset.</rdfs:comment>
+        <rdfs:label>DEV-003</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#FSCA-001 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#FSCA-001">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <hasActionType rdf:resource="http://www.uoc.edu/PEC2#SafetyAlert"/>
+        <hasIncident rdf:resource="http://www.uoc.edu/PEC2#INC-001"/>
+        <hasStatus rdf:resource="http://www.uoc.edu/PEC2#Open"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-01</actionDate>
+        <actionDescription>Safety alert issued to all implanting centres regarding anticoagulation protocol update for HeartMate 3 to reduce device thrombosis risk. INR target range revised to 2.0–3.0.</actionDescription>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected>850</devicesAffected>
+        <eudamedFSCARef>EU-FSCA-2024-000001</eudamedFSCARef>
+        <fscaId>FSCA-001</fscaId>
+        <scope>All HeartMate 3 LVAD units implanted since 2020</scope>
+        <rdfs:comment>Instance of a corrective action from the dataset.</rdfs:comment>
+        <rdfs:label>FSCA-001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#FSCA-002 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#FSCA-002">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <hasActionType rdf:resource="http://www.uoc.edu/PEC2#Recall"/>
+        <hasIncident rdf:resource="http://www.uoc.edu/PEC2#INC-002"/>
+        <hasStatus rdf:resource="http://www.uoc.edu/PEC2#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-28</actionDate>
+        <actionDescription>Voluntary recall of affected Micra AV lots due to premature battery depletion. Replacement units provided. 97% of affected devices successfully replaced.</actionDescription>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-05-31</closureDate>
+        <countriesAffected>EU-wide + UK</countriesAffected>
+        <devicesAffected>1240</devicesAffected>
+        <eudamedFSCARef>EU-FSCA-2024-000002</eudamedFSCARef>
+        <fscaId>FSCA-002</fscaId>
+        <scope>Micra AV lots manufactured between 2022-09 and 2023-03</scope>
+        <rdfs:comment>Instance of a corrective action from the dataset.</rdfs:comment>
+        <rdfs:label>FSCA-002</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#FSCA-003 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#FSCA-003">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+        <hasActionType rdf:resource="http://www.uoc.edu/PEC2#InSituCorrection"/>
+        <hasIncident rdf:resource="http://www.uoc.edu/PEC2#INC-003"/>
+        <hasStatus rdf:resource="http://www.uoc.edu/PEC2#Closed"/>
+        <actionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-15</actionDate>
+        <actionDescription>Enhanced deployment training and updated IFU for Portico valve implantation technique. New implantation checklist mandatory for all TAVI centres.</actionDescription>
+        <closureDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-06-30</closureDate>
+        <countriesAffected>EU-wide</countriesAffected>
+        <devicesAffected>320</devicesAffected>
+        <eudamedFSCARef>EU-FSCA-2024-000003</eudamedFSCARef>
+        <fscaId>FSCA-003</fscaId>
+        <scope>Portico THV sizes 23mm and 25mm from lots before 2023-11</scope>
+        <rdfs:comment>Instance of a corrective action from the dataset.</rdfs:comment>
+        <rdfs:label>FSCA-003</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#France -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#France">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Country"/>
+        <rdfs:comment>Country where incidents or manufacturers are located.</rdfs:comment>
+        <rdfs:label>France</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/France"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Germany -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Germany">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Country"/>
+        <rdfs:comment>Country where incidents or manufacturers are located.</rdfs:comment>
+        <rdfs:label>Germany</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/Germany"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#High -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#High">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Probability"/>
+        <rdfs:comment>High probability level of occurrence.</rdfs:comment>
+        <rdfs:label>High</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#INC-001 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#INC-001">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <hasDevice rdf:resource="http://www.uoc.edu/PEC2#DEV-001"/>
+        <hasIncidentType rdf:resource="http://www.uoc.edu/PEC2#SeriousIncident"/>
+        <hasRisk rdf:resource="http://www.uoc.edu/PEC2#RSK-003"/>
+        <reportedBy rdf:resource="http://www.uoc.edu/PEC2#MAN-001"/>
+        <reportedInCountry rdf:resource="http://www.uoc.edu/PEC2#Germany"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-10</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000001</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-08</eventDate>
+        <incidentDescription>Patient implanted with HeartMate 3 LVAD developed ischemic stroke 6 months post-implant. Device thrombus confirmed by echocardiography.</incidentDescription>
+        <incidentId>INC-001</incidentId>
+        <outcome>Serious patient injury - embolic stroke</outcome>
+        <patientAge>58</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-15</reportDate>
+        <rdfs:comment>Instance of a incident from the dataset.</rdfs:comment>
+        <rdfs:label>INC-001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#INC-002 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#INC-002">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <hasDevice rdf:resource="http://www.uoc.edu/PEC2#DEV-002"/>
+        <hasIncidentType rdf:resource="http://www.uoc.edu/PEC2#SeriousIncident"/>
+        <hasRisk rdf:resource="http://www.uoc.edu/PEC2#RSK-009"/>
+        <reportedBy rdf:resource="http://www.uoc.edu/PEC2#MAN-001"/>
+        <reportedInCountry rdf:resource="http://www.uoc.edu/PEC2#France"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-01</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000002</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-01-29</eventDate>
+        <incidentDescription>Micra AV pacemaker reached elective replacement indicator 14 months earlier than expected longevity specification.</incidentDescription>
+        <incidentId>INC-002</incidentId>
+        <outcome>Device malfunction - premature battery depletion</outcome>
+        <patientAge>72</patientAge>
+        <patientSex>Female</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-03</reportDate>
+        <rdfs:comment>Instance of a incident from the dataset.</rdfs:comment>
+        <rdfs:label>INC-002</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#INC-003 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#INC-003">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+        <hasDevice rdf:resource="http://www.uoc.edu/PEC2#DEV-003"/>
+        <hasIncidentType rdf:resource="http://www.uoc.edu/PEC2#SeriousIncident"/>
+        <hasRisk rdf:resource="http://www.uoc.edu/PEC2#RSK-005"/>
+        <reportedBy rdf:resource="http://www.uoc.edu/PEC2#MAN-002"/>
+        <reportedInCountry rdf:resource="http://www.uoc.edu/PEC2#Italy"/>
+        <correctiveActionTaken rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</correctiveActionTaken>
+        <detectionDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-18</detectionDate>
+        <eudamedIncidentRef>EU-INC-2024-000003</eudamedIncidentRef>
+        <eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-15</eventDate>
+        <incidentDescription>Portico valve showed paravalvular leak grade III due to partial migration 2 weeks post-TAVI procedure.</incidentDescription>
+        <incidentId>INC-003</incidentId>
+        <outcome>Surgical intervention required - valve re-anchoring</outcome>
+        <patientAge>67</patientAge>
+        <patientSex>Male</patientSex>
+        <reportDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-02-20</reportDate>
+        <rdfs:comment>Instance of a incident from the dataset.</rdfs:comment>
+        <rdfs:label>INC-003</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#IVDR -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#IVDR">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RegulatoryFramework"/>
+        <rdfs:comment>Regulatory framework for in vitro diagnostic devices in the European Union.</rdfs:comment>
+        <rdfs:label>IVDR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#InSituCorrection -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#InSituCorrection">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#ActionType"/>
+        <rdfs:comment>Corrective action applied directly without removing the device.</rdfs:comment>
+        <rdfs:label>In situ correction</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Ireland -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Ireland">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Country"/>
+        <rdfs:comment>Country where incidents or manufacturers are located.</rdfs:comment>
+        <rdfs:label>Ireland</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/Ireland"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Italy -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Italy">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Country"/>
+        <rdfs:comment>Country where incidents or manufacturers are located.</rdfs:comment>
+        <rdfs:label>Italy</rdfs:label>
+        <rdfs:seeAlso rdf:resource="http://dbpedia.org/resource/Italy"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Low -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Low">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Probability"/>
+        <rdfs:comment>Low probability level of occurrence.</rdfs:comment>
+        <rdfs:label>Low</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#MAN-001 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#MAN-001">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <hasCountry rdf:resource="http://www.uoc.edu/PEC2#Ireland"/>
+        <authorizationNumber>IE/2017/001234</authorizationNumber>
+        <competentAuthority>Health Products Regulatory Authority (HPRA)</competentAuthority>
+        <contactEmail>regulatory@medtronic.com</contactEmail>
+        <eudamedSRN>SRN-IE-MED-0001</eudamedSRN>
+        <manufacturerId>MAN-001</manufacturerId>
+        <name>Medtronic plc</name>
+        <rdfs:comment>Instance of a manufacturer from the dataset.</rdfs:comment>
+        <rdfs:label>MAN-001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#MAN-002 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#MAN-002">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <hasCountry rdf:resource="http://www.uoc.edu/PEC2#Germany"/>
+        <authorizationNumber>DE/2017/005678</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@abbott.com</contactEmail>
+        <eudamedSRN>SRN-DE-MED-0002</eudamedSRN>
+        <manufacturerId>MAN-002</manufacturerId>
+        <name>Abbott Medical Devices</name>
+        <rdfs:comment>Instance of a manufacturer from the dataset.</rdfs:comment>
+        <rdfs:label>MAN-002</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#MAN-003 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#MAN-003">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Manufacturer"/>
+        <hasCountry rdf:resource="http://www.uoc.edu/PEC2#Germany"/>
+        <authorizationNumber>DE/2017/009012</authorizationNumber>
+        <competentAuthority>Bundesinstitut für Arzneimittel und Medizinprodukte (BfArM)</competentAuthority>
+        <contactEmail>regulatory@siemens-healthineers.com</contactEmail>
+        <eudamedSRN>SRN-DE-MED-0003</eudamedSRN>
+        <manufacturerId>MAN-003</manufacturerId>
+        <name>Siemens Healthineers AG</name>
+        <rdfs:comment>Instance of a manufacturer from the dataset.</rdfs:comment>
+        <rdfs:label>MAN-003</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#MDR -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#MDR">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#RegulatoryFramework"/>
+        <rdfs:comment>Regulatory framework for medical devices in the European Union.</rdfs:comment>
+        <rdfs:label>MDR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Medium -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Medium">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Probability"/>
+        <rdfs:comment>Medium probability level of occurrence.</rdfs:comment>
+        <rdfs:label>Medium</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Moderate -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Moderate">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Severity"/>
+        <rdfs:comment>Moderate level of severity for a risk or incident.</rdfs:comment>
+        <rdfs:label>Moderate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#NearMissIncident -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#NearMissIncident">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#IncidentType"/>
+        <rdfs:comment>Incident that did not result in harm but could have.</rdfs:comment>
+        <rdfs:label>Near miss incident</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Open -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Open">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Status"/>
+        <rdfs:comment>Status indicating that the case is still open.</rdfs:comment>
+        <rdfs:label>Open</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RSK-001 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#RSK-001">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <hasAffectedDeviceType rdf:resource="http://www.uoc.edu/PEC2#activeDevice"/>
+        <hasProbability rdf:resource="http://www.uoc.edu/PEC2#Low"/>
+        <hasRiskCategory rdf:resource="http://www.uoc.edu/PEC2#deviceFailure"/>
+        <hasRiskType rdf:resource="http://www.uoc.edu/PEC2#malfunctionRisk"/>
+        <hasSeverity rdf:resource="http://www.uoc.edu/PEC2#Critical"/>
+        <imdrfCode>A0101</imdrfCode>
+        <riskDescription>Complete loss of electrical function leading to device shutdown</riskDescription>
+        <riskId>RSK-001</riskId>
+        <riskName>Device failure - electrical</riskName>
+        <rdfs:comment>Instance of a risk from the dataset.</rdfs:comment>
+        <rdfs:label>RSK-001</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RSK-002 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#RSK-002">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <hasAffectedDeviceType rdf:resource="http://www.uoc.edu/PEC2#implantableDevice"/>
+        <hasProbability rdf:resource="http://www.uoc.edu/PEC2#Medium"/>
+        <hasRiskCategory rdf:resource="http://www.uoc.edu/PEC2#deviceFailure"/>
+        <hasRiskType rdf:resource="http://www.uoc.edu/PEC2#malfunctionRisk"/>
+        <hasSeverity rdf:resource="http://www.uoc.edu/PEC2#Critical"/>
+        <imdrfCode>A0102</imdrfCode>
+        <riskDescription>Structural failure of mechanical components under physiological load</riskDescription>
+        <riskId>RSK-002</riskId>
+        <riskName>Device failure - mechanical</riskName>
+        <rdfs:comment>Instance of a risk from the dataset.</rdfs:comment>
+        <rdfs:label>RSK-002</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RSK-003 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#RSK-003">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <hasAffectedDeviceType rdf:resource="http://www.uoc.edu/PEC2#implantableActiveDevice"/>
+        <hasProbability rdf:resource="http://www.uoc.edu/PEC2#Low"/>
+        <hasRiskCategory rdf:resource="http://www.uoc.edu/PEC2#patientHarm"/>
+        <hasRiskType rdf:resource="http://www.uoc.edu/PEC2#injuryRisk"/>
+        <hasSeverity rdf:resource="http://www.uoc.edu/PEC2#Critical"/>
+        <imdrfCode>A0201</imdrfCode>
+        <riskDescription>Thrombus formation on device surface causing embolic events</riskDescription>
+        <riskId>RSK-003</riskId>
+        <riskName>Thrombosis - device-related</riskName>
+        <rdfs:comment>Instance of a risk from the dataset.</rdfs:comment>
+        <rdfs:label>RSK-003</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RSK-005 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#RSK-005">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <hasAffectedDeviceType rdf:resource="http://www.uoc.edu/PEC2#implantableDevice"/>
+        <hasProbability rdf:resource="http://www.uoc.edu/PEC2#Low"/>
+        <hasRiskCategory rdf:resource="http://www.uoc.edu/PEC2#devicePerformance"/>
+        <hasRiskType rdf:resource="http://www.uoc.edu/PEC2#malfunctionRisk"/>
+        <hasSeverity rdf:resource="http://www.uoc.edu/PEC2#Serious"/>
+        <imdrfCode>A0301</imdrfCode>
+        <riskDescription>Unintended displacement of implant from intended anatomical position</riskDescription>
+        <riskId>RSK-005</riskId>
+        <riskName>Device migration - implant</riskName>
+        <rdfs:comment>Instance of a risk from the dataset.</rdfs:comment>
+        <rdfs:label>RSK-005</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#RSK-009 -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#RSK-009">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Risk"/>
+        <hasAffectedDeviceType rdf:resource="http://www.uoc.edu/PEC2#activeImplant"/>
+        <hasProbability rdf:resource="http://www.uoc.edu/PEC2#Low"/>
+        <hasRiskCategory rdf:resource="http://www.uoc.edu/PEC2#deviceFailure"/>
+        <hasRiskType rdf:resource="http://www.uoc.edu/PEC2#malfunctionRisk"/>
+        <hasSeverity rdf:resource="http://www.uoc.edu/PEC2#Critical"/>
+        <imdrfCode>A0501</imdrfCode>
+        <riskDescription>&quot;Battery end-of-life earlier than specified, risking therapy interruption&quot;</riskDescription>
+        <riskId>RSK-009</riskId>
+        <riskName>Battery depletion - premature</riskName>
+        <rdfs:comment>Instance of a risk from the dataset.</rdfs:comment>
+        <rdfs:label>RSK-009</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Recall -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Recall">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#ActionType"/>
+        <rdfs:comment>Corrective action involving the removal or replacement of affected devices.</rdfs:comment>
+        <rdfs:label>Recall</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#SafetyAlert -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#SafetyAlert">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#ActionType"/>
+        <rdfs:comment>Corrective action notifying users about a safety issue.</rdfs:comment>
+        <rdfs:label>Safety alert</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#Serious -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#Serious">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#Severity"/>
+        <rdfs:comment>High level of severity for a risk or incident.</rdfs:comment>
+        <rdfs:label>Serious</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#SeriousIncident -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#SeriousIncident">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#IncidentType"/>
+        <rdfs:comment>Incident resulting in serious consequences.</rdfs:comment>
+        <rdfs:label>Serious incident</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#UserNotice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#UserNotice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#ActionType"/>
+        <rdfs:comment>Corrective action consisting of informing users about an issue.</rdfs:comment>
+        <rdfs:label>User notice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#activeDevice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#activeDevice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Active device</rdfs:comment>
+        <rdfs:label>Active device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#activeImplant -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#activeImplant">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Implantable device</rdfs:comment>
+        <rdfs:label>Active implant</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#contaminationRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#contaminationRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRelatedRisk"/>
+        <rdfs:comment>Risk related to contamination of the device.</rdfs:comment>
+        <rdfs:label>Contamination risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#cybersecurityRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#cybersecurityRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRelatedRisk"/>
+        <rdfs:comment>Risk related to cybersecurity vulnerabilities in the device.</rdfs:comment>
+        <rdfs:label>Cyber security risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#deviceFailure -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#deviceFailure">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRiskCategory"/>
+        <rdfs:comment>Risk category related to failure of the device.</rdfs:comment>
+        <rdfs:label>Device failure</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#devicePerformance -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#devicePerformance">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRiskCategory"/>
+        <rdfs:comment>Risk category related to performance issues of the device.</rdfs:comment>
+        <rdfs:label>Device performance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#deviceSafety -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#deviceSafety">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRiskCategory"/>
+        <rdfs:comment>Risk category related to safety issues of the device.</rdfs:comment>
+        <rdfs:label>Device safety</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#diagnosticError -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#diagnosticError">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRiskCategory"/>
+        <rdfs:comment>Device risk category type involving an incorrect diagnosis.</rdfs:comment>
+        <rdfs:label>Diagnosis error</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#diagnosticRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#diagnosticRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRelatedRisk"/>
+        <rdfs:comment>Device Related Risk classified as incorrect or delayed diagnosis.</rdfs:comment>
+        <rdfs:label>Diagnostic risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#implantableActiveDevice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#implantableActiveDevice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Active device that is implanted in the body.</rdfs:comment>
+        <rdfs:label>Implantable active device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#implantableDevice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#implantableDevice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Device that is implanted in the body.</rdfs:comment>
+        <rdfs:label>Implantable device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#inVitroDiagnosticDevice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#inVitroDiagnosticDevice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Device used for in vitro diagnostic purposes.</rdfs:comment>
+        <rdfs:label>In vitro diagnostic device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#infectionRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#infectionRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#HumanRelatedRisk"/>
+        <rdfs:comment>Risk related to infection caused by the device.</rdfs:comment>
+        <rdfs:label>Infection risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#injuryRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#injuryRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#HumanRelatedRisk"/>
+        <rdfs:comment>Risk related to physical injury to patients or users.</rdfs:comment>
+        <rdfs:label>Injury risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#interferenceRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#interferenceRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRelatedRisk"/>
+        <rdfs:comment>Risk related to electromagnetic or operational interference.</rdfs:comment>
+        <rdfs:label>Interference risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#malfunctionRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#malfunctionRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRelatedRisk"/>
+        <rdfs:comment>Risk related to malfunction of the device.</rdfs:comment>
+        <rdfs:label>Malfunction risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#materialRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#materialRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#HumanRelatedRisk"/>
+        <rdfs:comment>Risk related to materials used in the device.</rdfs:comment>
+        <rdfs:label>Material risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#patientHarm -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#patientHarm">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#HumanRiskCategory"/>
+        <rdfs:comment>Risk category related to harm caused to patients.</rdfs:comment>
+        <rdfs:label>Patient harm</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#productQuality -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#productQuality">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRiskCategory"/>
+        <rdfs:comment>Risk category related to quality issues of the device.</rdfs:comment>
+        <rdfs:label>Product quality</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#radiationRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#radiationRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#HumanRelatedRisk"/>
+        <rdfs:comment>Risk related to radiation exposure from the device.</rdfs:comment>
+        <rdfs:label>Radiation risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#selfTestDevice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#selfTestDevice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Device intended for self-testing by the user.</rdfs:comment>
+        <rdfs:label>Self test device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#singleUseDevice -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#singleUseDevice">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceType"/>
+        <rdfs:comment>Device intended to be used only once.</rdfs:comment>
+        <rdfs:label>Single use device</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.uoc.edu/PEC2#softwareRisk -->
+
+
+    <owl:NamedIndividual rdf:about="http://www.uoc.edu/PEC2#softwareRisk">
+        <rdf:type rdf:resource="http://www.uoc.edu/PEC2#DeviceRelatedRisk"/>
+        <rdfs:comment>Risk related to software components of the device.</rdfs:comment>
+        <rdfs:label>Software risk</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#d">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#i">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#Incident"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.uoc.edu/PEC2#hasRisk"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#r"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.uoc.edu/PEC2#hasSeverity"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="http://www.uoc.edu/PEC2#Critical"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#CriticalRiskIncident"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#i"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.uoc.edu/PEC2#hasStatus"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="http://www.uoc.edu/PEC2#Closed"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#ClosedCorrectiveAction"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.uoc.edu/PEC2#hasStatus"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                        <swrl:argument2 rdf:resource="http://www.uoc.edu/PEC2#Open"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#CorrectiveAction"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#OpenCorrectiveAction"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#Device"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.uoc.edu/PEC2#hasRiskClass"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <swrl:argument2 rdf:resource="http://www.uoc.edu/PEC2#ClassIII"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.uoc.edu/PEC2#ClassIIIDevice"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
